@@ -38,6 +38,10 @@ def get_font():
 
         print("chosen font")
 
+        if sys.argv[2] in font_list:
+
+            return sys.argv[2]
+
     else:
 
         return False
