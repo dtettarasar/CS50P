@@ -7,7 +7,7 @@ def main():
 
     selected_font = get_font()
 
-    print(selected_font)
+    # print(selected_font)
 
     if selected_font == False:
 
@@ -15,8 +15,12 @@ def main():
 
     else:
 
+        str = input("Input: ")
+
         f = Figlet(font=selected_font)
-        print(f.renderText('text to render'))
+
+        print("Output: ")
+        print(f.renderText(str))
 
 
 def get_font():
@@ -25,7 +29,7 @@ def get_font():
 
     if len(sys.argv) == 1:
 
-        print("random font")
+        # print("random font")
 
         selected_font = random.choice(font_list)
 
@@ -33,7 +37,7 @@ def get_font():
 
     elif len(sys.argv) == 3:
 
-        print("chosen font")
+        # print("chosen font")
 
         first_argument = ['-f', '--font']
 
