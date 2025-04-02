@@ -5,12 +5,12 @@ from pyfiglet import Figlet
 
 def main():
 
-    font = get_font()
+    selected_font = get_font()
 
-    print(font)
+    print(selected_font)
 
-    # f = Figlet(font='alligator')
-    # print(f.renderText('text to render'))
+    f = Figlet(font=selected_font)
+    print(f.renderText('text to render'))
 
 
 def get_font():
@@ -21,6 +21,12 @@ def get_font():
     font_list = [
         '3-d',
         '3x5',
+        '5lineoblique',
+        'acrobatic',
+        'alligator',
+        'alligator2',
+        'alphabet',
+        'avatar',
     ]
 
     if len(sys.argv) == 1:
@@ -29,7 +35,9 @@ def get_font():
 
         # Select a random item
         selected_font = random.choice(font_list)
-        print(selected_font)
+        # print(selected_font)
+
+        return selected_font
 
     elif len(sys.argv) == 3:
 
