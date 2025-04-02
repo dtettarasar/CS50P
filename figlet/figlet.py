@@ -21,19 +21,12 @@ def main():
 
 def get_font():
 
-    # print(sys.argv)
-    # print(len(sys.argv))
-
-    # font_list_bis = Figlet().getFonts()
-
-    # print(font_list_bis)
-
     font_list = Figlet().getFonts()
 
     if len(sys.argv) == 1:
 
         print("random font")
-        
+
         selected_font = random.choice(font_list)
 
         return selected_font
@@ -41,6 +34,12 @@ def get_font():
     elif len(sys.argv) == 3:
 
         print("chosen font")
+
+        first_argument = ['-f', '--font']
+
+        if sys.argv[1] not in first_argument:
+
+            return False
 
         if sys.argv[2] in font_list:
 
