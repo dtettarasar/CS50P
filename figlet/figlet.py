@@ -18,16 +18,11 @@ def get_font():
     # print(sys.argv)
     # print(len(sys.argv))
 
-    font_list = [
-        '3-d',
-        '3x5',
-        '5lineoblique',
-        'acrobatic',
-        'alligator',
-        'alligator2',
-        'alphabet',
-        'avatar',
-    ]
+    # font_list_bis = Figlet().getFonts()
+
+    # print(font_list_bis)
+
+    font_list = Figlet().getFonts()
 
     if len(sys.argv) == 1:
 
