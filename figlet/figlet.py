@@ -9,8 +9,14 @@ def main():
 
     print(selected_font)
 
-    f = Figlet(font=selected_font)
-    print(f.renderText('text to render'))
+    if selected_font == False:
+
+        sys.exit('Invalid usage')
+
+    else:
+
+        f = Figlet(font=selected_font)
+        print(f.renderText('text to render'))
 
 
 def get_font():
@@ -27,10 +33,8 @@ def get_font():
     if len(sys.argv) == 1:
 
         print("random font")
-
-        # Select a random item
+        
         selected_font = random.choice(font_list)
-        # print(selected_font)
 
         return selected_font
 
@@ -41,6 +45,10 @@ def get_font():
         if sys.argv[2] in font_list:
 
             return sys.argv[2]
+        
+        else:
+
+            return False
 
     else:
 
