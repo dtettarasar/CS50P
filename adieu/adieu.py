@@ -1,4 +1,8 @@
+import inflect
+
 def main():
+
+    p = inflect.engine()
 
     name_list = []
 
@@ -12,6 +16,10 @@ def main():
             print()
             print("Adieu, goodbye, auf Wiederseh'n, Die Zeit mit dir war schön")
             print(name_list)
+
+            lastStr = p.join(name_list , ",")
+            print(lastStr)
+
             break
 
 main()
