@@ -19,11 +19,13 @@ def main():
     result = False
     user_guess = ""
 
-    while user_guess.isdigit() == False:
+    while user_guess.isdigit() == False or result == False:
 
         user_guess = input("Guess: ")
-    
-    get_result(number_to_guess, int(user_guess))
+
+        if user_guess.isdigit() == True:
+
+            result = get_result(number_to_guess, int(user_guess))
 
 
 
