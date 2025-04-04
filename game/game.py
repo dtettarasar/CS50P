@@ -7,9 +7,12 @@ def main():
 
     level = ""
 
-    while level.isdigit() == False:
+    while check_level(level) == False:
 
         level = input("Level: ")
+
+        check_level(level)
+
 
     # print(f"level selected is: {level}")
 
@@ -31,6 +34,27 @@ def main():
             if result == True:
                 sys.exit("Just Right!")
 
+# Make sure the level provided by the user correspond to a positiv integer
+def check_level(level):
+
+    # print('init check level func')
+    # print("is level a digit")
+
+    if level.isdigit() == False:
+
+        return False
+    
+    else:
+
+        int_level = int(level)
+
+        if int_level > 0:
+
+            return True
+        
+        else: 
+
+            return False
 
 
 def get_result(number_to_guess, user_guess):
