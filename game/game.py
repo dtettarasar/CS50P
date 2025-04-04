@@ -1,6 +1,7 @@
 # https://cs50.harvard.edu/python/2022/psets/4/game/
 
 import random
+import sys
 
 def main():
 
@@ -9,7 +10,7 @@ def main():
     while level.isdigit() == False:
 
         level = input("Level: ")
-    
+
     # print(f"level selected is: {level}")
 
     number_to_guess = random.randint(1, int(level))
@@ -27,6 +28,9 @@ def main():
 
             result = get_result(number_to_guess, int(user_guess))
 
+            if result == True:
+                sys.exit("Just Right!")
+
 
 
 def get_result(number_to_guess, user_guess):
@@ -34,14 +38,14 @@ def get_result(number_to_guess, user_guess):
     if user_guess < number_to_guess:
         print("Too small!")
         return False
-    
+
     elif user_guess > number_to_guess:
         print("Too large!")
         return False
-    
+
     else:
-        print('Just right!')
-        return True 
+        # print('Just right!')
+        return True
 
 
 main()
