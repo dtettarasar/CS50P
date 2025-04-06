@@ -4,9 +4,15 @@ import random
 def main():
     # todo
 
-    str = input("Level: ")
+    level = ""
 
-    print(get_level(str))
+    while get_level(level) == False:
+
+        level = input("Level: ")
+
+        # level = get_level(str)
+
+    print(level)
 
 
 def get_level(str):
