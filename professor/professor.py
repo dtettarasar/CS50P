@@ -85,6 +85,9 @@ def generate_math_pb_list(int_list):
 
         print(int_list[i])
 
+        # checker si i est pair
+        # si i est pair alors int_one = int_list[i] et int_two = int_list[i + 1]
+
     """
     for i in range(10):
 
