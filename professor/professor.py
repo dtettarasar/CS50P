@@ -4,9 +4,9 @@ def main():
 
     level = get_level()
 
-    generate_integer(int(level))
+    int_list = generate_integer(int(level))
 
-    # math_pb_list = generate_math_pb_list(level)
+    math_pb_list = generate_math_pb_list(int_list)
 
     # play_game(math_pb_list)
 
@@ -33,8 +33,8 @@ def get_level():
 
 def generate_integer(level):
 
-    print("generate integer function")
-    print(level)
+    # print("generate integer function")
+    # print(level)
 
     int_list = []
 
@@ -68,19 +68,24 @@ def generate_integer(level):
 
         int_list.append(int)
 
-    print(int_list)
+    # print(int_list)
 
     return int_list
 
 
-def generate_math_pb_list(level):
+def generate_math_pb_list(int_list):
 
-    # print('init math_pb_list function')
+    print('init math_pb_list function')
+    print('int list')
+    print(int_list)
 
     math_pb_list = []
 
-    generate_int(level)
+    for i in range(len(int_list)):
 
+        print(int_list[i])
+
+    """
     for i in range(10):
 
         math_pb_dict = {
@@ -95,6 +100,7 @@ def generate_math_pb_list(level):
         math_pb_dict["result"] = math_pb_dict["int_one"] + math_pb_dict["int_two"]
 
         math_pb_list.append(math_pb_dict)
+    """
 
 
     return math_pb_list
