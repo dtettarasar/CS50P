@@ -12,7 +12,7 @@ def main():
 
         # level = get_level(str)
 
-    print(level)
+    generate_int(level)
 
 
 def get_level(str):
@@ -31,10 +31,45 @@ def get_level(str):
         return True
 
 
-def generate_integer(level):
+def generate_int(level):
     # todo
 
-    print('generate integer function')
+    range_start_number = 0
+    range_end_number = 0
+
+
+    print('init generate_int function')
+
+    print(f"Level: {level}")
+
+    if level == "1":
+
+        range_end_number = 9
+    
+    elif level == "2":
+
+        range_start_number = 10
+        range_end_number = 99
+
+    elif level == "3":
+
+        range_start_number = 100
+        range_end_number = 999
+
+    int = random.randint(range_start_number, range_end_number)
+
+    print(f"int generated: {int}")
+
+
+def generate_math_pb_list(level):
+
+    print('init math_pb_list function')
+
+
+def play_game(mth_pb_list):
+    
+    print('init the the play game function')
+
 
 
 if __name__ == "__main__":
