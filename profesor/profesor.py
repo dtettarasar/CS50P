@@ -4,9 +4,11 @@ def main():
 
     level = get_level()
 
-    math_pb_list = generate_math_pb_list(level)
+    generate_integer(int(level))
 
-    play_game(math_pb_list)
+    # math_pb_list = generate_math_pb_list(level)
+
+    # play_game(math_pb_list)
 
 
 def get_level():
@@ -27,10 +29,14 @@ def get_level():
 
             break
 
-
     return level
 
-def generate_int(level):
+def generate_integer(level):
+
+    print("generate integer function")
+    print(level)
+
+    int_list = []
 
     range_start_number = 0
     range_end_number = 0
@@ -38,25 +44,33 @@ def generate_int(level):
     # print('init generate_int function')
     # print(f"Level: {level}")
 
-    if level == "1":
+    if level == 1:
 
         range_end_number = 9
 
-    elif level == "2":
+    elif level == 2:
 
         range_start_number = 10
         range_end_number = 99
 
-    elif level == "3":
+    elif level == 3:
 
         range_start_number = 100
         range_end_number = 999
 
-    int = random.randint(range_start_number, range_end_number)
-
     # print(f"int generated: {int}")
 
-    return int
+    # return int
+
+    for _ in range(20):
+
+        int = random.randint(range_start_number, range_end_number)
+
+        int_list.append(int)
+
+    print(int_list)
+
+    return int_list
 
 
 def generate_math_pb_list(level):
