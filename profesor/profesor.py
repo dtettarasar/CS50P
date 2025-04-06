@@ -2,33 +2,33 @@ import random
 
 def main():
 
-    level = ""
-
-    while get_level(level) == False:
-
-        level = input("Level: ")
-
-        # level = get_level(str)
+    level = get_level()
 
     math_pb_list = generate_math_pb_list(level)
 
     play_game(math_pb_list)
 
 
-def get_level(str):
+def get_level():
 
-    # print("init get level function")
+    level = False
 
     levels_list = ["1", "2", "3"]
 
-    if str not in levels_list:
+    while level == False:
 
-        return False
-    
-    else:
+        level = input("Level: ")
 
-        return True
+        if level not in levels_list:
 
+            level = False
+
+        else:
+
+            break
+
+
+    return level
 
 def generate_int(level):
 
@@ -41,7 +41,7 @@ def generate_int(level):
     if level == "1":
 
         range_end_number = 9
-    
+
     elif level == "2":
 
         range_start_number = 10
@@ -82,12 +82,12 @@ def generate_math_pb_list(level):
 
         math_pb_list.append(math_pb_dict)
 
-    
+
     return math_pb_list
 
 
 def play_game(math_pb_list):
-    
+
     # print('init the the play game function')
 
     # print(math_pb_list)
@@ -101,7 +101,7 @@ def play_game(math_pb_list):
         while math_pb_dict["remaining_attempts"] != 0 and math_pb_dict["solved"] == False:
 
             answer = input(f"{math_pb_dict["int_one"]} + {math_pb_dict["int_two"]} = ")
-            
+
             if answer.isdigit() == True:
 
                 answer_int = int(answer)
@@ -111,24 +111,24 @@ def play_game(math_pb_list):
                     # print('right answer found')
                     math_pb_dict["solved"] = True
                     player_score += 1
-                
-                else: 
+
+                else:
 
                     math_pb_dict["remaining_attempts"] -= 1
 
                     print("EEE")
                     # print("remaining_attempts: ")
                     # print(math_pb_dict["remaining_attempts"])
-                
+
             else:
 
                 math_pb_dict["remaining_attempts"] -= 1
-                
+
                 print("EEE")
                 # print("remaining_attempts: ")
                 # print(math_pb_dict["remaining_attempts"])
 
-           
+
     # print(math_pb_list)
     print(f"Score: {player_score}")
 
