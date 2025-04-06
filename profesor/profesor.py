@@ -1,8 +1,6 @@
 import random
 
-
 def main():
-    # todo
 
     level = ""
 
@@ -36,7 +34,6 @@ def generate_int(level):
 
     range_start_number = 0
     range_end_number = 0
-
 
     # print('init generate_int function')
     # print(f"Level: {level}")
@@ -91,13 +88,15 @@ def generate_math_pb_list(level):
 
 def play_game(math_pb_list):
     
-    print('init the the play game function')
+    # print('init the the play game function')
 
     # print(math_pb_list)
 
+    player_score = 0
+
     for math_pb_dict in math_pb_list:
 
-        print(math_pb_dict)
+        # print(math_pb_dict)
 
         while math_pb_dict["remaining_attempts"] != 0 and math_pb_dict["solved"] == False:
 
@@ -109,23 +108,29 @@ def play_game(math_pb_list):
 
                 if answer_int == math_pb_dict["result"]:
 
-                    print('right answer found')
+                    # print('right answer found')
                     math_pb_dict["solved"] = True
+                    player_score += 1
                 
                 else: 
 
                     math_pb_dict["remaining_attempts"] -= 1
-                    print("remaining_attempts: ")
-                    print(math_pb_dict["remaining_attempts"])
+
+                    print("EEE")
+                    # print("remaining_attempts: ")
+                    # print(math_pb_dict["remaining_attempts"])
                 
             else:
 
                 math_pb_dict["remaining_attempts"] -= 1
-                print("remaining_attempts: ")
-                print(math_pb_dict["remaining_attempts"])
+                
+                print("EEE")
+                # print("remaining_attempts: ")
+                # print(math_pb_dict["remaining_attempts"])
 
            
-    print(math_pb_list)
+    # print(math_pb_list)
+    print(f"Score: {player_score}")
 
 
 
