@@ -8,7 +8,7 @@ def main():
 
     math_pb_list = generate_math_pb_list(int_list)
 
-    # play_game(math_pb_list)
+    play_game(math_pb_list)
 
 
 def get_level():
@@ -75,9 +75,9 @@ def generate_integer(level):
 
 def generate_math_pb_list(int_list):
 
-    print('init math_pb_list function')
-    print('int list')
-    print(int_list)
+    # print('init math_pb_list function')
+    # print('int list')
+    # print(int_list)
 
     math_pb_list = []
 
@@ -103,28 +103,9 @@ def generate_math_pb_list(int_list):
 
             math_pb_dict["result"] = math_pb_dict["int_one"] + math_pb_dict["int_two"]
 
-            print(math_pb_dict)
+            # print(math_pb_dict)
 
             math_pb_list.append(math_pb_dict)
-
-
-    """
-    for i in range(10):
-
-        math_pb_dict = {
-
-            "int_one": generate_int(level),
-            "int_two": generate_int(level),
-            "solved": False, # track is the user solved the math problem
-            "remaining_attempts": 3 # to track the number of tries made by the user. each time the user failed to solve the problem, decrease the value by 1. and if it reaches 0 go to next problem
-
-        }
-
-        math_pb_dict["result"] = math_pb_dict["int_one"] + math_pb_dict["int_two"]
-
-        math_pb_list.append(math_pb_dict)
-    """
-
 
     return math_pb_list
 
