@@ -143,7 +143,7 @@ def play_game(math_pb_list):
                     print("EEE")
                     # print("remaining_attempts: ")
                     # print(math_pb_dict["remaining_attempts"])
-
+            
             else:
 
                 math_pb_dict["remaining_attempts"] -= 1
@@ -152,11 +152,14 @@ def play_game(math_pb_list):
                 # print("remaining_attempts: ")
                 # print(math_pb_dict["remaining_attempts"])
 
+        # show the solution if the player failed to resolve a problem
+        if math_pb_dict["remaining_attempts"] == 0:
+
+            print(f"{math_pb_dict["int_one"]} + {math_pb_dict["int_two"]} = {math_pb_dict["result"]}")
+
 
     # print(math_pb_list)
     print(f"Score: {player_score}")
-
-
 
 
 if __name__ == "__main__":
