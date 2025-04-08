@@ -83,10 +83,30 @@ def generate_math_pb_list(int_list):
 
     for i in range(len(int_list)):
 
-        print(int_list[i])
+        # print(int_list[i])
 
-        # checker si i est pair
-        # si i est pair alors int_one = int_list[i] et int_two = int_list[i + 1]
+        if (i % 2) == 0:
+              
+            # checker si i est pair
+            # si i est pair alors int_one = int_list[i] et int_two = int_list[i + 1]
+
+            # print (f"{int_list[i]} + {int_list[i+1]}")
+
+            math_pb_dict = {
+
+                "int_one": int_list[i],
+                "int_two": int_list[i+1],
+                "solved": False, # track is the user solved the math problem
+                "remaining_attempts": 3 # to track the number of tries made by the user. each time the user failed to solve the problem, decrease the value by 1. and if it reaches 0 go to next problem
+
+            }
+
+            math_pb_dict["result"] = math_pb_dict["int_one"] + math_pb_dict["int_two"]
+
+            print(math_pb_dict)
+
+            math_pb_list.append(math_pb_dict)
+
 
     """
     for i in range(10):
