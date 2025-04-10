@@ -10,4 +10,8 @@ def get_arg():
 
     print(arg)
 
+    if len(arg) == 1:
+
+        sys.exit('Missing command-line argument')
+
 main()
