@@ -37,11 +37,13 @@ def get_arg():
 
 def get_price_index(qty):
 
-    print("init get price index")
+    # print("init get price index")
 
-    print(qty)
+    # print(qty)
 
     r = None
+
+    price = 0
 
     try:
 
@@ -51,7 +53,25 @@ def get_price_index(qty):
 
         sys.exit("Error with the API Call")
 
-    print(r.json())
+    r_json = r.json()
+
+    try:
+
+        price = r_json['data']['priceUsd']
+
+    except KeyError:
+
+        sys.exit("Price is not available")
+
+    # print(price)
+
+    price_float = float(price)
+
+    index = price_float * qty
+
+    # print(index)
+
+    print(f"${index:,.4f}")
 
 
 main()
