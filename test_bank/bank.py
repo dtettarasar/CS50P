@@ -5,26 +5,24 @@ def main():
     answer = value(str)
 
     if answer != None:
-        print(answer)
+        print(f"${answer}")
 
 
 def value(greeting):
 
-    if (greeting == "Hello" or greeting == "Hello, Newman"):
+    greeting_lc = greeting.lower()
+
+    if (greeting_lc.startswith("hello")):
         #  print("$0")
         return 0
 
-    elif (greeting == "How you doing?"):
+    elif (greeting_lc.startswith("h")):
         # print("$20")
         return 20
 
-    elif (greeting == "What's happening?" or greeting == "What's up?"):
-        # print("$100")
-        return 100
-
     else:
 
-        return None
+        return 100
 
 
 if __name__ == "__main__":
