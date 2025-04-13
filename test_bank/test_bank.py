@@ -1,14 +1,15 @@
 from bank import value
 
-def test_invalid_input():
-    assert value("Test") == None
-
 def test_zero_dollar():
 
-    assert value("Hello") == "$0"
-    assert value("Hello, Newman") == "$0"
+    assert value("Hello") == 0
+    assert value("Hello, Newman") == 0
 
+def test_twenty_dollars():
 
+    assert value("How you doing?") == 20
 
-if __name__ == "__main__":
-    main()
+def test_hundred_dollars():
+
+    assert value("What's happening?") == 100
+    assert value("What's up?") == 100
