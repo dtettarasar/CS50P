@@ -1,13 +1,13 @@
-from twttr import remove_vowels
+from twttr import shorten
 
 
 def test_lowercase():
 
-    assert remove_vowels("metallica") == "mtllc"
+    assert shorten("metallica") == "mtllc"
 
 def test_uppercase():
 
-    assert remove_vowels("KORN") == "KRN"
+    assert shorten("KORN") == "KRN"
 
     
 if __name__ == "__main__":

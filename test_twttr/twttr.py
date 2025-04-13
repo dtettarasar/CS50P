@@ -1,12 +1,12 @@
 def main():
 
-    str = input("Input: ")
+    word = input("Input: ")
 
-    str_without_vowels = remove_vowels(str)
+    str_without_vowels = remove_vowels(word)
 
     print(f"Output: {str_without_vowels}")
 
-def remove_vowels(str):
+def shorten(word):
 
     vowels_list = [
         "A", "E", "I", "O","U",
@@ -15,7 +15,7 @@ def remove_vowels(str):
 
     char_list = []
 
-    for s in str:
+    for s in word:
 
         # print(s)
 
