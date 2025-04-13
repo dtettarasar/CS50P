@@ -1,11 +1,29 @@
-str = input("Greeting: ").strip()
-#print(str)
+def main():
 
-if (str == "Hello" or str == "Hello, Newman"):
-    print("$0")
+    str = input("Greeting: ").strip()
 
-elif (str == "How you doing?"):
-    print("$20")
+    answer = value(str)
 
-elif (str == "What's happening?" or str == "What's up?"):
-    print("$100")
+    if answer != None:
+        print(f"${answer}")
+
+
+def value(greeting):
+
+    greeting_lc = greeting.lower()
+
+    if (greeting_lc.startswith("hello")):
+        #  print("$0")
+        return 0
+
+    elif (greeting_lc.startswith("h")):
+        # print("$20")
+        return 20
+
+    else:
+
+        return 100
+
+
+if __name__ == "__main__":
+    main()
