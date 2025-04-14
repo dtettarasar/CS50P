@@ -2,7 +2,7 @@ def main():
     
     fraction = False
 
-    while fraction == False:
+    while fraction in [False, None]:
 
         str = input('Fraction: ')
 
@@ -17,6 +17,8 @@ def convert(str):
         "dividend": None,
         "divisor": None
     }
+
+    result = None
 
     # To make sure the string match the fraction format
     slash_check = str.count('/')
@@ -46,9 +48,23 @@ def convert(str):
 
         return False
 
-    else:
+    try:
 
-        return fraction
+        if fraction["dividend"] > fraction["divisor"]:
+
+            # print('error: dividend cannot be superior to divisor')
+
+            return False
+        
+        else:
+
+            result = fraction["dividend"] * 100 / fraction["divisor"]
+
+            return round(result)
+
+    except ZeroDivisionError:
+
+        return False 
 
 
 def gauge(percentage):
