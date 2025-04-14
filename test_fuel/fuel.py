@@ -2,13 +2,21 @@ def main():
     
     fraction = False
 
-    while fraction in [False, None]:
+    while fraction == False:
 
         str = input('Fraction: ')
 
         fraction = convert(str)
+        print("fraction in while loop")
+        print(fraction)
 
-    print(fraction)
+        if fraction == 0:
+            print("we got 0 not False")
+
+    gauge_value = gauge(fraction)
+    print(gauge_value)
+
+    # print(fraction) 
 
 
 def convert(str):
@@ -47,6 +55,9 @@ def convert(str):
         # print("values not valid")
 
         return False
+    
+    print("fraction")
+    print(fraction)
 
     try:
 
@@ -68,7 +79,20 @@ def convert(str):
 
 
 def gauge(percentage):
-    ...
+    
+    print(percentage)
+
+    if percentage <= 1:
+
+        return "E"
+
+    elif percentage >= 99:
+
+        return "F"
+
+    else:
+
+        return f"{round(percentage)}%"
 
 
 if __name__ == "__main__":
