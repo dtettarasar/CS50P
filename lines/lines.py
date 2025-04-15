@@ -21,7 +21,7 @@ def get_arg():
     
     arg_list = sys.argv
     
-    print(arg_list)
+    # print(arg_list)
     
     if len(arg_list) == 1:
         
@@ -45,8 +45,8 @@ def get_arg():
 
 def get_file_content(file_name):
     
-    print('init get file content')
-    print(file_name)
+    # print('init get file content')
+    # print(file_name)
     
     try:
         
@@ -62,7 +62,7 @@ def get_file_content(file_name):
     
     for line in lines:
         
-        if line != '\n' and line.strip().startswith('#') == False:
+        if line != '\n' and line.strip().startswith('#') == False and len(line.strip()) >= 1:
             output.append(line)
 
     return output
