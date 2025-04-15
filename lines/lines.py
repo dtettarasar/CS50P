@@ -19,5 +19,12 @@ def get_arg():
     elif len(arg_list) > 2:
         
         sys.exit('Too many command-line arguments')
+        
+    file_name = arg_list[1]
+    print(file_name)
+    
+    if file_name.endswith(".py") == False:
+        
+        sys.exit('Not a Python file')
 
 main()
