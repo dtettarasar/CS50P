@@ -11,5 +11,9 @@ def get_arg():
     arg_list = sys.argv
     
     print(arg_list)
+    
+    if len(arg_list) == 1:
+        
+        sys.exit('Too few command-line arguments')
 
 main()
