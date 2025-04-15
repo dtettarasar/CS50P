@@ -6,9 +6,13 @@ def main():
     
     file_content = get_file_content(file_name)
     
-    for line in file_content:
+    print(len(file_content))
+    
+    # print(file_content)
+    
+    # for line in file_content:
         
-        print(line)
+        # print(line)
     
 
 def get_arg():
@@ -57,7 +61,9 @@ def get_file_content(file_name):
     output = []
     
     for line in lines:
-        output.append(line)
+        
+        if line != '\n' and line.strip().startswith('#') == False:
+            output.append(line)
 
     return output
 
