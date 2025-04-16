@@ -9,7 +9,9 @@ def main():
     
     file_content = get_file_content(file_name)
     
-    print(file_content)
+    table = build_table(file_content)
+    
+    print(table)
     
     # table = [["Sun",696000,1989100000],["Earth",6371,5973.6], ["Moon",1737,73.5],["Mars",3390,641.85]]
     # print(tabulate(table))
@@ -68,6 +70,14 @@ def get_file_content(file_name):
     except FileNotFoundError:
         
         sys.exit('File does not exist')
+        
+        
+def build_table(file_content):
+        
+    header = file_content[0].keys()
+    rows =  [x.values() for x in file_content]
+    
+    return tabulate(rows, header)
     
     
 main()
