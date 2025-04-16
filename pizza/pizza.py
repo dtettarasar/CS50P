@@ -1,4 +1,5 @@
 import sys
+import csv
 
 from tabulate import tabulate
 
@@ -7,6 +8,8 @@ def main():
     file_name = get_file_name()
     
     file_content = get_file_content(file_name)
+    
+    print(file_content)
     
     # table = [["Sun",696000,1989100000],["Earth",6371,5973.6], ["Moon",1737,73.5],["Mars",3390,641.85]]
     # print(tabulate(table))
@@ -43,6 +46,28 @@ def get_file_content(file_name):
     
     print('init get file content')
     print(file_name)
+    
+    file_content = []
+    
+    reader = None
+    
+    try:
+        
+        with open(file_name, newline='') as csvfile:
+            
+            reader = csv.DictReader(csvfile)
+            
+            for row in reader:
+                
+                file_content.append(row)
+            
+            # print(file_content)
+            
+            return file_content
+            
+    except FileNotFoundError:
+        
+        sys.exit('File does not exist')
     
     
 main()
