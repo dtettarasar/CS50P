@@ -46,8 +46,8 @@ def get_file_name():
 
 def get_file_content(file_name):
     
-    print('init get file content')
-    print(file_name)
+    # print('init get file content')
+    # print(file_name)
     
     file_content = []
     
@@ -77,7 +77,7 @@ def build_table(file_content):
     header = file_content[0].keys()
     rows =  [x.values() for x in file_content]
     
-    return tabulate(rows, header)
+    return tabulate(rows, header, tablefmt='grid')
     
     
 main()
