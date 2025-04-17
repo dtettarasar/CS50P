@@ -3,7 +3,7 @@ import csv
 
 def main():
     
-    print("init main function")
+    # print("init main function")
     
     file_names = get_file_names()
     
@@ -17,7 +17,7 @@ def main():
     
 def get_file_names():
     
-    print("init get_file_names function")
+    # print("init get_file_names function")
     
     file_names = {
         'input': None,
@@ -50,9 +50,9 @@ def get_file_names():
     
 def get_file_content(input_file_name): 
     
-    print("init get_file_content function")
+    # print("init get_file_content function")
     
-    print(input_file_name)
+    # print(input_file_name)
     
     file_content = []
     
@@ -93,15 +93,14 @@ def get_file_content(input_file_name):
     
 def build_output_file(file_content, output_file_name):
     
-    print("init build_output_file function")
+    # print("init build_output_file function")
     
-    print(file_content)
+    # print(file_content)
     
     keys = file_content[0].keys()
     
-    
-    with open(output_file_name, 'w', newline='') as output_file:
-        dict_writer = csv.DictWriter(output_file, keys)
+    with open(output_file_name, 'w', newline='', encoding='utf-8') as output_file:
+        dict_writer = csv.DictWriter(output_file, fieldnames=["first", "last", "house"], delimiter=',')
         dict_writer.writeheader()
         dict_writer.writerows(file_content)
 
