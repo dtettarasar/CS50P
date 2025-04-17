@@ -25,8 +25,13 @@ def get_file_names():
     elif len(arg_list) > 3:
         
         sys.exit('Too many command-line arguments')
+        
+    file_names['input'] = arg_list[1]
+    file_names['output'] = arg_list[2]
     
-def get_file_content(file_name): 
+    print(file_names)
+    
+def get_file_content(input_file_name): 
     
     print("init get_file_content function")
     
