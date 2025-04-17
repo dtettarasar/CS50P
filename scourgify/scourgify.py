@@ -5,7 +5,9 @@ def main():
     
     print("init main function")
     
-    file_name = get_file_names()
+    file_names = get_file_names()
+    
+    print(file_names)
     
 def get_file_names():
     
@@ -29,7 +31,16 @@ def get_file_names():
     file_names['input'] = arg_list[1]
     file_names['output'] = arg_list[2]
     
-    print(file_names)
+    # print(file_names)
+    
+    if file_names['input'].endswith(".csv") == False or file_names['output'].endswith(".csv") == False:
+        
+        sys.exit("input and output files should be in CSV format")
+        
+    else:
+        
+        return file_names
+    
     
 def get_file_content(input_file_name): 
     
