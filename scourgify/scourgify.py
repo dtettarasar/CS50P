@@ -11,6 +11,8 @@ def main():
     
     file_content = get_file_content(file_names['input'])
     
+    print(file_content)
+    
 def get_file_names():
     
     print("init get_file_names function")
@@ -63,7 +65,17 @@ def get_file_content(input_file_name):
             for row in reader:
                 
                 file_content.append(row)
-                print(row)
+                # print(row)
+                # print(row['name'])
+                
+                name_list = row['name'].split(', ')
+                # print(name_list)
+                
+                row['first'] = name_list[1]
+                row['last'] = name_list[0]
+                # print(row)
+                
+                # print('---------------------')
             
             # print(file_content)
             
