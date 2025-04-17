@@ -9,6 +9,8 @@ def main():
     
     print(file_names)
     
+    file_content = get_file_content(file_names['input'])
+    
 def get_file_names():
     
     print("init get_file_names function")
@@ -45,6 +47,32 @@ def get_file_names():
 def get_file_content(input_file_name): 
     
     print("init get_file_content function")
+    
+    print(input_file_name)
+    
+    file_content = []
+    
+    reader = None
+    
+    try:
+        
+        with open(input_file_name, newline='') as csvfile:
+            
+            reader = csv.DictReader(csvfile)
+            
+            for row in reader:
+                
+                file_content.append(row)
+                print(row)
+            
+            # print(file_content)
+            
+            return file_content
+            
+    except FileNotFoundError:
+        
+        sys.exit('File does not exist')
+    
     
 def build_output_file(file_content):
     
