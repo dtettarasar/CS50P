@@ -7,11 +7,13 @@ def main():
     
     file_names = get_file_names()
     
-    print(file_names)
+    # print(file_names)
     
     file_content = get_file_content(file_names['input'])
     
-    print(file_content)
+    # print(file_content)
+    
+    build_output_file(file_content, file_names['output'])
     
 def get_file_names():
     
@@ -64,7 +66,6 @@ def get_file_content(input_file_name):
             
             for row in reader:
                 
-                file_content.append(row)
                 # print(row)
                 # print(row['name'])
                 
@@ -73,6 +74,10 @@ def get_file_content(input_file_name):
                 
                 row['first'] = name_list[1]
                 row['last'] = name_list[0]
+                
+                del row['name']
+                
+                file_content.append(row)
                 # print(row)
                 
                 # print('---------------------')
@@ -86,8 +91,18 @@ def get_file_content(input_file_name):
         sys.exit('File does not exist')
     
     
-def build_output_file(file_content):
+def build_output_file(file_content, output_file_name):
     
     print("init build_output_file function")
+    
+    print(file_content)
+    
+    keys = file_content[0].keys()
+    
+    
+    with open(output_file_name, 'w', newline='') as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(file_content)
 
 main()
