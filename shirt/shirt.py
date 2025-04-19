@@ -119,5 +119,7 @@ def build_output_file(img_file, output_file_name):
     except FileNotFoundError:
         
         sys.exit('shirt.png file does not exist')
+        
+    output_img = img_file.save(output_file_name)
     
 main()
