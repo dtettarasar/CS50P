@@ -1,6 +1,6 @@
 import sys
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 def main():
     
@@ -119,7 +119,11 @@ def build_output_file(img_file, output_file_name):
     except FileNotFoundError:
         
         sys.exit('shirt.png file does not exist')
-        
-    output_img = img_file.save(output_file_name)
+    
+    back_im = img_file.copy()
+    back_im = ImageOps.fit(back_im, size = shirt.size)
+    
+    back_im.paste(shirt, (0, 0), shirt) 
+    back_im.save(output_file_name)
     
 main()
