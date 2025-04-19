@@ -7,11 +7,8 @@ def main():
     file_names = get_file_names()
     
     img_file = get_file_content(file_names['input'])
-    
-    size = img_file.size
 
-    print('img size')
-    print(size)
+    build_output_file(img_file, file_names['output'])
     
     
     
@@ -103,5 +100,24 @@ def get_format(str):
     else:
         # print("String format is not valid")
         return False
+
+
+def build_output_file(img_file, output_file_name):
+    
+    print("init build output file function")
+    
+    size = img_file.size
+    
+    print(size)
+    
+    shirt = None
+    
+    try:
+        
+        shirt = Image.open("shirt.png")        
+        
+    except FileNotFoundError:
+        
+        sys.exit('shirt.png file does not exist')
     
 main()
