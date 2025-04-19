@@ -1,8 +1,12 @@
 import sys
 
+from PIL import Image
+
 def main():
     
     file_names = get_file_names()
+    
+    file_content = get_file_content(file_names['input'])
     
 def get_file_names():
     
@@ -51,6 +55,32 @@ def get_file_names():
     if input_format != output_format:
         
         sys.exit('Input and output have different extensions')
+        
+    else:
+        
+        return file_names
+        
+
+def get_file_content(input_file_name):
+    
+    print("init get_file_content function")
+    
+    print(input_file_name)
+    
+    try:
+        
+        shirt = Image.open(input_file_name)        
+        size = shirt.size
+
+        print('shirt size')
+        
+        print(size)
+        
+    except FileNotFoundError:
+        
+        sys.exit('Input does not exist')
+
+
         
     
 # check that str contain one dot. if yes then return what's after the dot to get the file format
