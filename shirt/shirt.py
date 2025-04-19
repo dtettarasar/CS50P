@@ -6,7 +6,14 @@ def main():
     
     file_names = get_file_names()
     
-    file_content = get_file_content(file_names['input'])
+    img_file = get_file_content(file_names['input'])
+    
+    size = img_file.size
+
+    print('img size')
+    print(size)
+    
+    
     
 def get_file_names():
     
@@ -69,18 +76,13 @@ def get_file_content(input_file_name):
     
     try:
         
-        shirt = Image.open(input_file_name)        
-        size = shirt.size
-
-        print('shirt size')
+        img_file = Image.open(input_file_name)        
         
-        print(size)
+        return img_file
         
     except FileNotFoundError:
         
         sys.exit('Input does not exist')
-
-
         
     
 # check that str contain one dot. if yes then return what's after the dot to get the file format
