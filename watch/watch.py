@@ -1,3 +1,5 @@
+# About the exercice : https://cs50.harvard.edu/python/2022/psets/7/watch/
+
 import re
 import sys
 
@@ -20,7 +22,28 @@ def parse(s):
     
     x = re.search(src_regex, s)
     
-    print(x)
+    # print(x)
+    # print(x.group(0))
+    
+    if x:
+        
+        # return True
+        
+        src_attribute = x.group(0)
+        print(src_attribute)
+        
+        src_link = re.sub('(src=\")', '', src_attribute)
+        src_link = re.sub('(\")', '', src_link)
+        
+        print(src_link)
+        
+        
+    
+    else:
+        
+        return None
+
+
 
 def check_iframe_format(str):
 
