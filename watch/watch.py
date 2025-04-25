@@ -37,7 +37,11 @@ def parse(s):
         
         print(src_link)
         
+        src_link_list = src_link.split("/")
+        print(src_link_list)
         
+        youtube_id = src_link_list[len(src_link_list) - 1]
+        print(youtube_id)
     
     else:
         
