@@ -12,7 +12,7 @@ def parse(s):
 
 def check_iframe_format(str):
 
-    if str.startswith("Hello") and str.endswith('World'):
+    if str.startswith("<iframe") and str.endswith("</iframe>"):
         
         return True
     
