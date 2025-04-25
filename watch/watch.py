@@ -18,7 +18,7 @@ def parse(s):
         
     # print(s)
     
-    src_regex = 'src=\"https?:\/\/w?w?w?\.?youtube.com\/embed\/\w+\"'
+    src_regex = 'src=\"https?:\/\/w?w?w?\.?youtube\.com\/embed\/\w+\"'
     
     x = re.search(src_regex, s)
     
