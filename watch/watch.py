@@ -14,7 +14,7 @@ def parse(s):
     
     if is_iframe == False:
         
-        sys.exit("make sure you provide an iframe HTML element")
+        return None
         
     # print(s)
     
