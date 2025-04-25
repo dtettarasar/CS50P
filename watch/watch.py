@@ -30,18 +30,20 @@ def parse(s):
         # return True
         
         src_attribute = x.group(0)
-        print(src_attribute)
+        # print(src_attribute)
         
         src_link = re.sub('(src=\")', '', src_attribute)
         src_link = re.sub('(\")', '', src_link)
         
-        print(src_link)
+        # print(src_link)
         
         src_link_list = src_link.split("/")
-        print(src_link_list)
+        # print(src_link_list)
         
         youtube_id = src_link_list[len(src_link_list) - 1]
-        print(youtube_id)
+        # print(youtube_id)
+        
+        return f"https://youtu.be/{youtube_id}"
     
     else:
         
