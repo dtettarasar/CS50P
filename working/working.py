@@ -3,7 +3,11 @@ import sys
 
 
 def main():
-    print(convert(input("Hours: ")))
+    # print(convert(input("Hours: ")))
+    
+    # print(check_input("9 AM to 5 PM"))
+    
+    ...
 
 
 def convert(s):
@@ -14,7 +18,21 @@ def convert(s):
 
 def check_input(str):
     
-    return True
+    # print("init check input")
+    # print(str)
+    
+    regex = r"^(1[0-2]|[1-9])(\s{1}|(:{1}[0-5][0-9])?\s)(AM|PM)(\sto\s)(1[0-2]|[1-9])(\s{1}|(:{1}[0-5][0-9])?\s)(AM|PM)$"
+    
+    input_is_valid = re.search(regex, str)
+    
+    if input_is_valid:
+        
+        return True
+    
+    else: 
+        
+        return False
+
 
 if __name__ == "__main__":
     main()
