@@ -52,7 +52,17 @@ def format_to_twenty_four(time_str):
         
         time_list[0] = time_list[0].split(":")
         
+        hours = time_list[0][0]
+        minutes = time_list[0][1]
+        
+    else:
+        
+        hours = time_list[0]
+        
     print(time_list)
+    print(f"hours: {hours}")
+    print(f"minutes: {minutes}")
+    
 
 def check_input(str):
     
