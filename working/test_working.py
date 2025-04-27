@@ -1,4 +1,4 @@
-from working import check_input, format_to_twenty_four
+from working import check_input, format_to_twenty_four, convert
 
 def test_valid_input():
     
@@ -28,5 +28,12 @@ def test_format_time():
     assert format_to_twenty_four("9 AM") == "09:00"
     assert format_to_twenty_four("5:00 PM") == "17:00"
     assert format_to_twenty_four("9:50 PM") == "21:50"
+    
+def test_convert_func():
+    
+    assert convert("9 AM to 5 PM") == "09:00 to 17:00"
+    assert convert("9:00 AM to 5:00 PM") == "09:00 to 17:00"
+    assert convert("10 AM to 8:50 PM") == "10:00 to 20:50"
+    assert convert('10:30 PM to 8 AM') == "22:30 to 08:00"
     
     

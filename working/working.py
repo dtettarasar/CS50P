@@ -19,25 +19,25 @@ def convert(s):
     if s_is_valid == False:
         
         raise ValueError('input is invalid')
-        
-        # print('input is invalid')
     
     else:
         
-        print('input is valid')
+        # print('input is valid')
         #print(s)
         
         full_time = s.split("to")
-        print(full_time)
+        # print(full_time)
         
         start_time = full_time[0].strip()
         end_time = full_time[1].strip()
         
-        print(f"start_time: {start_time}")
-        print(f"end_time: {end_time}")
+        # print(f"start_time: {start_time}")
+        # print(f"end_time: {end_time}")
         
-        format_to_twenty_four(start_time)
-        format_to_twenty_four(end_time)
+        formatted_start_time = format_to_twenty_four(start_time)
+        formatted_end_time = format_to_twenty_four(end_time)
+        
+        return f"{formatted_start_time} to {formatted_end_time}"
 
     
 def format_to_twenty_four(time_str):
@@ -45,8 +45,8 @@ def format_to_twenty_four(time_str):
     hours = 0
     minutes = 0
     
-    print('init the format to 24 hour format function')
-    print(f"time str: {time_str}")
+    # print('init the format to 24 hour format function')
+    # print(f"time str: {time_str}")
     
     time_list = time_str.split(' ')
     
@@ -70,12 +70,12 @@ def format_to_twenty_four(time_str):
         hours += 12
         
         
-    print(time_list)
-    print(f"hours: {hours}")
-    print(f"minutes: {minutes}")
+    # print(time_list)
+    # print(f"hours: {hours}")
+    # print(f"minutes: {minutes}")
     
     final_str = f'{hours:02d}:{minutes:02d}'
-    print(f"final_str: {final_str}")
+    # print(f"final_str: {final_str}")
     
     return final_str
     
