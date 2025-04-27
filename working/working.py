@@ -24,6 +24,16 @@ def convert(s):
     else:
         
         print('input is valid')
+        #print(s)
+        
+        full_time = s.split("to")
+        print(full_time)
+        
+        start_time = full_time[0].strip()
+        end_time = full_time[1].strip()
+        
+        print(f"start_time: {start_time}")
+        print(f"end_time: {end_time}")
 
     
 ...
