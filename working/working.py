@@ -1,3 +1,4 @@
+# about the exercice: https://cs50.harvard.edu/python/2022/psets/7/working/
 import re
 import sys
 
@@ -36,6 +37,7 @@ def convert(s):
         print(f"end_time: {end_time}")
         
         format_to_twenty_four(start_time)
+        format_to_twenty_four(end_time)
 
     
 def format_to_twenty_four(time_str):
@@ -52,16 +54,23 @@ def format_to_twenty_four(time_str):
         
         time_list[0] = time_list[0].split(":")
         
-        hours = time_list[0][0]
-        minutes = time_list[0][1]
+        hours = int(time_list[0][0])
+        minutes = int(time_list[0][1])
         
     else:
         
-        hours = time_list[0]
+        hours = int(time_list[0])
+        
+    if time_list[1] == "PM":
+        
+        hours += 12
         
     print(time_list)
     print(f"hours: {hours}")
     print(f"minutes: {minutes}")
+    
+    final_str = f'{hours:02d}:{minutes:02d}'
+    print(f"final_str: {final_str}")
     
 
 def check_input(str):
