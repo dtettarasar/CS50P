@@ -34,9 +34,25 @@ def convert(s):
         
         print(f"start_time: {start_time}")
         print(f"end_time: {end_time}")
+        
+        format_to_twenty_four(start_time)
 
     
-...
+def format_to_twenty_four(time_str):
+    
+    hours = 0
+    minutes = 0
+    
+    print('init the format to 24 hour format function')
+    print(f"time str: {time_str}")
+    
+    time_list = time_str.split(' ')
+    
+    if time_list[0].count(':') == 1:
+        
+        time_list[0] = time_list[0].split(":")
+        
+    print(time_list)
 
 def check_input(str):
     
