@@ -3,7 +3,8 @@ import sys
 
 
 def main():
-    # print(convert(input("Hours: ")))
+    
+    print(convert(input("Hours: ")))
     
     # print(check_input("9 AM to 5 PM"))
     
@@ -11,9 +12,20 @@ def main():
 
 
 def convert(s):
-    ...
+    
+    s_is_valid = check_input(s)
+    
+    if s_is_valid == False:
+        
+        raise ValueError('input is invalid')
+        
+        # print('input is invalid')
+    
+    else:
+        
+        print('input is valid')
 
-
+    
 ...
 
 def check_input(str):
