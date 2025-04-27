@@ -60,10 +60,15 @@ def format_to_twenty_four(time_str):
     else:
         
         hours = int(time_list[0])
+    
+    if hours == 12 and time_list[1] == "AM":
         
-    if time_list[1] == "PM":
+        hours = 0
+        
+    elif time_list[1] == "PM" and hours != 12:
         
         hours += 12
+        
         
     print(time_list)
     print(f"hours: {hours}")
@@ -71,6 +76,8 @@ def format_to_twenty_four(time_str):
     
     final_str = f'{hours:02d}:{minutes:02d}'
     print(f"final_str: {final_str}")
+    
+    return final_str
     
 
 def check_input(str):
