@@ -1,39 +1,29 @@
-from working import check_input, format_to_twenty_four, convert
+from working import convert
+import pytest
+
+def test_invalid_hour():
+    with pytest.raises(ValueError):
+        convert("13 AM to 5 PM")
+
+def test_invalid_minute():
+    with pytest.raises(ValueError):
+        convert("12:60 AM to 5 PM")
+
 
 def test_valid_input():
-    
-    assert check_input("9 AM to 5 PM") == True
-    assert check_input("9:00 AM to 5:00 PM") == True
-    assert check_input("10 AM to 8:50 PM") == True
-    assert check_input("11:15 AM to 6 PM") == True
-    assert check_input("12:00 AM to 5:02 AM") == True
-    assert check_input("12:01 AM to 5:34 AM") == True
-    assert check_input("9 PM to 12:45 AM") == True
-    
-def test_invalid_input():
-    
-    assert check_input("9 AM - 5 PM") == False
-    assert check_input("9:60 AM to 5:60 PM") == False
-    assert check_input("09:00 AM - 17:00 PM") == False
-    assert check_input("12 AM to 5:30 AM!") == False
-    assert check_input("12:10 AM to ") == False
-    assert check_input("12 AM to 6: AM") == False
-    assert check_input("19:15 to 21:30") == False
-    
-def test_format_time():
-    
-    assert format_to_twenty_four("12:45 AM") == "00:45"
-    assert format_to_twenty_four("12:45 PM") == "12:45"
-    assert format_to_twenty_four("12:01 AM") == "00:01"
-    assert format_to_twenty_four("9 AM") == "09:00"
-    assert format_to_twenty_four("5:00 PM") == "17:00"
-    assert format_to_twenty_four("9:50 PM") == "21:50"
-    
-def test_convert_func():
-    
     assert convert("9 AM to 5 PM") == "09:00 to 17:00"
-    assert convert("9:00 AM to 5:00 PM") == "09:00 to 17:00"
+    assert convert("9:30 AM to 5:45 PM") == "09:30 to 17:45"
     assert convert("10 AM to 8:50 PM") == "10:00 to 20:50"
     assert convert('10:30 PM to 8 AM') == "22:30 to 08:00"
-    
-    
+
+
+def test_invalid_to():
+    with pytest.raises(ValueError):
+        convert("9 AM 5 PM")
+
+
+def test_invalid_format():
+    with pytest.raises(ValueError):
+        convert("9 to 5")
+    with pytest.raises(ValueError):
+        convert("17:00 to 9 PM")
