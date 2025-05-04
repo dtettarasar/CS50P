@@ -41,9 +41,14 @@ class Birthdate:
         print(date_elem_list)
         
         self.year = date_elem_list[0]
+        self.month = date_elem_list[1]
+        self.day = date_elem_list[2]
         
-        print(self.year)
-        
+        print(f'year: {self.year}')
+        print(f'month: {self.month}')
+        print(f'day: {self.day}')
+    
+    
     @property
     def year(self):
         return self._year
@@ -55,9 +60,42 @@ class Birthdate:
             
             self._year = int(value)
         
-        except:
+        except ValueError:
             
-            ValueError('year not valid')
+            print('year not valid')
+    
+    
+    @property
+    def month(self):
+        return self._month
+    
+    @month.setter
+    def month(self, value):
+        
+        try:
+            
+            self._month = int(value)
+            
+        except ValueError:
+            
+            print('month not valid')
+    
+    
+    @property
+    def day(self):
+        return self._day
+    
+    @day.setter
+    def day(self, value):
+        
+        try:
+            
+            self._day = int(value)
+            
+        except ValueError:
+            
+            print('day not valid')
+    
     
     @property
     def user_input(self):
