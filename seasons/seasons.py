@@ -4,17 +4,17 @@ import sys
 
 def main():
     
-    input = Birthdate()
+    birth_date = Birthdate()
     
-    print(input.birth_date)
+    print(birth_date.user_input)
 
 class Birthdate:
     
-    pattern = r"\b\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])\b"
+    pattern = r"^\b\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])\b$"
     
     def __init__(self):
         
-        self.birth_date = Birthdate.ask_date()        
+        self.user_input = Birthdate.ask_date()        
     
     def ask_date():
         
@@ -22,11 +22,11 @@ class Birthdate:
         return str
     
     @property
-    def birth_date(self):
-        return self._birth_date
+    def user_input(self):
+        return self._user_input
     
-    @birth_date.setter
-    def birth_date(self, value):
+    @user_input.setter
+    def user_input(self, value):
         
         check_format = re.search(Birthdate.pattern, value)
         #print(check_format)
@@ -34,8 +34,7 @@ class Birthdate:
         if check_format == None:
             sys.exit("Invalid date")
         else:
-            self._birth_date = value
-
+            self._user_input = value
 
 
 if __name__ == "__main__":
