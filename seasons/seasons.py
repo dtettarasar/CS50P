@@ -5,8 +5,9 @@ import sys
 def main():
     
     try:
-    
-        birth_date = Birthdate()
+        str = input('Date of Birth: ')
+        
+        birth_date = Birthdate(str)
     
     except ValueError:
         
@@ -19,15 +20,10 @@ class Birthdate:
     
     pattern = r"^\b\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])\b$"
     
-    def __init__(self):
+    def __init__(self, str):
         
-        self.user_input = Birthdate.ask_date()
+        self.user_input = str
         Birthdate.convert_to_int(self)        
-    
-    def ask_date():
-        
-        str = input('Date of Birth: ')
-        return str
     
     def __str__(self):
         return 'date to be converted here'
