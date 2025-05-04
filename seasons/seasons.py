@@ -4,9 +4,16 @@ import sys
 
 def main():
     
-    birth_date = Birthdate()
+    try:
     
+        birth_date = Birthdate()
+    
+    except ValueError:
+        
+        sys.exit("Invalid date")
+        
     print(birth_date.user_input)
+
 
 class Birthdate:
     
@@ -32,7 +39,8 @@ class Birthdate:
         #print(check_format)
 
         if check_format == None:
-            sys.exit("Invalid date")
+            # sys.exit("Invalid date")
+            raise ValueError
         else:
             self._user_input = value
 
