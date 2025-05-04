@@ -12,7 +12,7 @@ def main():
         
         sys.exit("Invalid date")
         
-    print(birth_date)
+    # print(birth_date)
 
 
 class Birthdate:
@@ -21,7 +21,8 @@ class Birthdate:
     
     def __init__(self):
         
-        self.user_input = Birthdate.ask_date()        
+        self.user_input = Birthdate.ask_date()
+        Birthdate.convert_to_int(self)        
     
     def ask_date():
         
@@ -30,6 +31,33 @@ class Birthdate:
     
     def __str__(self):
         return 'date to be converted here'
+    
+    def convert_to_int(self):
+        
+        print("init convert to minutes method")
+        print(f"birth date is equal to: {self._user_input}")
+        
+        date_elem_list = self._user_input.split('-')
+        print(date_elem_list)
+        
+        self.year = date_elem_list[0]
+        
+        print(self.year)
+        
+    @property
+    def year(self):
+        return self._year
+    
+    @year.setter
+    def year(self, value):
+        
+        try:
+            
+            self._year = int(value)
+        
+        except:
+            
+            ValueError('year not valid')
     
     @property
     def user_input(self):
