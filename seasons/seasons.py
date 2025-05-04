@@ -1,16 +1,16 @@
 from datetime import date
-
+import re
+import sys
 
 def main():
     
     input = Birthdate()
     
     print(input.birth_date)
-    # print(Birthdate.regex)
 
 class Birthdate:
     
-    regex = 'regex'
+    pattern = r"\b\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])\b"
     
     def __init__(self):
         
@@ -27,8 +27,14 @@ class Birthdate:
     
     @birth_date.setter
     def birth_date(self, value):
-        # print(Birthdate.regex)
-        self._birth_date = value
+        
+        check_format = re.search(Birthdate.pattern, value)
+        #print(check_format)
+
+        if check_format == None:
+            sys.exit("Invalid date")
+        else:
+            self._birth_date = value
 
 
 
