@@ -12,7 +12,7 @@ def main():
         
         sys.exit("Invalid date")
         
-    print(birth_date.user_input)
+    print(birth_date)
 
 
 class Birthdate:
@@ -27,6 +27,9 @@ class Birthdate:
         
         str = input('Date of Birth: ')
         return str
+    
+    def __str__(self):
+        return 'date to be converted here'
     
     @property
     def user_input(self):
