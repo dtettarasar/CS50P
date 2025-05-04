@@ -3,15 +3,23 @@ from datetime import date
 
 def main():
     
-    input = Birthdate('test')
+    input = Birthdate()
     
     print(input.birth_date)
+    # print(Birthdate.regex)
 
 class Birthdate:
     
-    def __init__(self, birth_date):
+    regex = 'regex'
+    
+    def __init__(self):
         
-        self.birth_date = birth_date        
+        self.birth_date = Birthdate.ask_date()        
+    
+    def ask_date():
+        
+        str = input('Date of Birth: ')
+        return str
     
     @property
     def birth_date(self):
@@ -19,7 +27,8 @@ class Birthdate:
     
     @birth_date.setter
     def birth_date(self, value):
-        self._birth_date = value    
+        # print(Birthdate.regex)
+        self._birth_date = value
 
 
 
