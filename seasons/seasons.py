@@ -12,6 +12,7 @@ def main():
         birth_date = Birthdate(str)
         # birth_date.get_age_in_min()
         print(birth_date.age_in_min)
+        print(birth_date.get_age_in_words_min())
     
     except ValueError:
         
@@ -53,6 +54,12 @@ class Birthdate:
         print('init get_age_in_min method')
         
         self.age_in_min = int(self.age.total_seconds() / 60)
+        
+    def get_age_in_words_min(self):
+        
+        age_words = p.number_to_words(self.age_in_min, andword="")
+        
+        return age_words
         
     @property
     def age_in_min(self):
