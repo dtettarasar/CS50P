@@ -23,75 +23,34 @@ class Birthdate:
     def __init__(self, str):
         
         self.user_input = str
-        Birthdate.convert_to_int(self)        
+        Birthdate.get_time_from_birthday(self)        
     
     def __str__(self):
         return 'date to be converted here'
     
-    def convert_to_int(self):
+    def get_time_from_birthday(self):
         
-        print("init convert to minutes method")
-        print(f"birth date is equal to: {self._user_input}")
+        print('init get_time_from_birthday method')
         
-        date_elem_list = self._user_input.split('-')
-        print(date_elem_list)
+        print(f"birth date is equal to: {self.user_input}")
         
-        self.year = date_elem_list[0]
-        self.month = date_elem_list[1]
-        self.day = date_elem_list[2]
+        self.date_value = date.fromisoformat(self.user_input)
+        print("date value")
+        print(self.date_value.ctime())
         
-        print(f'year: {self.year}')
-        print(f'month: {self.month}')
-        print(f'day: {self.day}')
-    
-    
+        today = date.today()
+        
+        print("today")
+        print(today.ctime())
+        
     @property
-    def year(self):
-        return self._year
+    def date_value(self):
+        return self._date_value
     
-    @year.setter
-    def year(self, value):
+    @date_value.setter
+    def date_value(self, value):
         
-        try:
-            
-            self._year = int(value)
-        
-        except ValueError:
-            
-            print('year not valid')
-    
-    
-    @property
-    def month(self):
-        return self._month
-    
-    @month.setter
-    def month(self, value):
-        
-        try:
-            
-            self._month = int(value)
-            
-        except ValueError:
-            
-            print('month not valid')
-    
-    
-    @property
-    def day(self):
-        return self._day
-    
-    @day.setter
-    def day(self, value):
-        
-        try:
-            
-            self._day = int(value)
-            
-        except ValueError:
-            
-            print('day not valid')
-    
+        self._date_value = value
     
     @property
     def user_input(self):
