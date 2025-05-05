@@ -1,6 +1,8 @@
 from datetime import date
 import re
 import sys
+import inflect
+p = inflect.engine()
 
 def main():
     
@@ -8,6 +10,8 @@ def main():
         str = input('Date of Birth: ')
         
         birth_date = Birthdate(str)
+        # birth_date.get_age_in_min()
+        print(birth_date.age_in_min)
     
     except ValueError:
         
@@ -23,7 +27,8 @@ class Birthdate:
     def __init__(self, str):
         
         self.user_input = str
-        Birthdate.get_age(self)        
+        Birthdate.get_age(self)
+        Birthdate.get_age_in_min(self)    
     
     def __str__(self):
         return 'date to be converted here'
@@ -43,12 +48,20 @@ class Birthdate:
         self.age = today - self.date_value
         print(self.age)
         
-        # diff_in_min = int(difference.total_seconds() / 60)
-        # print(diff_in_min)
+    def get_age_in_min(self):
         
-        # print("today")
-        # print(today.ctime())
+        print('init get_age_in_min method')
         
+        self.age_in_min = int(self.age.total_seconds() / 60)
+        
+    @property
+    def age_in_min(self):
+        return self._age_in_min
+    
+    @age_in_min.setter
+    def age_in_min(self, value):
+        self._age_in_min = value
+    
     @property
     def age(self):
         return self._age
