@@ -40,6 +40,9 @@ class Birthdate:
         
         today = date.today()
         
+        difference = today - self.date_value
+        print(difference)
+        
         print("today")
         print(today.ctime())
         
