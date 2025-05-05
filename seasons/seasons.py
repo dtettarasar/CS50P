@@ -23,14 +23,14 @@ class Birthdate:
     def __init__(self, str):
         
         self.user_input = str
-        Birthdate.get_time_from_birthday(self)        
+        Birthdate.get_age(self)        
     
     def __str__(self):
         return 'date to be converted here'
     
-    def get_time_from_birthday(self):
+    def get_age(self):
         
-        print('init get_time_from_birthday method')
+        print('init get_age method')
         
         print(f"birth date is equal to: {self.user_input}")
         
@@ -40,11 +40,23 @@ class Birthdate:
         
         today = date.today()
         
-        difference = today - self.date_value
-        print(difference)
+        self.age = today - self.date_value
+        print(self.age)
         
-        print("today")
-        print(today.ctime())
+        # diff_in_min = int(difference.total_seconds() / 60)
+        # print(diff_in_min)
+        
+        # print("today")
+        # print(today.ctime())
+        
+    @property
+    def age(self):
+        return self._age
+    
+    @age.setter
+    def age(self, value):
+        
+        self._age = value
         
     @property
     def date_value(self):
