@@ -11,7 +11,7 @@ def main():
         
         birth_date = Birthdate(str)
         # birth_date.get_age_in_min()
-        print(birth_date.age_in_min)
+        # print(birth_date.age_in_min)
         print(birth_date.get_age_in_words_min())
     
     except ValueError:
@@ -36,22 +36,22 @@ class Birthdate:
     
     def get_age(self):
         
-        print('init get_age method')
+        # print('init get_age method')
         
-        print(f"birth date is equal to: {self.user_input}")
+        # print(f"birth date is equal to: {self.user_input}")
         
         self.date_value = date.fromisoformat(self.user_input)
-        print("date value")
-        print(self.date_value.ctime())
+        # print("date value")
+        # print(self.date_value.ctime())
         
         today = date.today()
         
         self.age = today - self.date_value
-        print(self.age)
+        # print(self.age)
         
     def get_age_in_min(self):
         
-        print('init get_age_in_min method')
+        # print('init get_age_in_min method')
         
         self.age_in_min = int(self.age.total_seconds() / 60)
         
@@ -59,7 +59,7 @@ class Birthdate:
         
         age_words = p.number_to_words(self.age_in_min, andword="")
         
-        return age_words
+        return f"{age_words.capitalize()} minutes"
         
     @property
     def age_in_min(self):
