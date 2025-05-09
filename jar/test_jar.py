@@ -29,4 +29,8 @@ def test_invalid_capacity():
         
         jar = Jar(0)
         
+def test_str_method():
     
+    jar = Jar(5)
+    
+    assert jar.__str__() == "🍪"
