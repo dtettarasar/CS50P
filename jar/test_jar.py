@@ -16,5 +16,17 @@ def test_invalid_capacity():
     with pytest.raises(ValueError):
         
         jar = Jar("not an int")
-    
+        
+    with pytest.raises(ValueError):
+        
+        jar = Jar(-5)
+        
+    with pytest.raises(ValueError):
+        
+        jar = Jar('-8')
+        
+    with pytest.raises(ValueError):
+        
+        jar = Jar(0)
+        
     

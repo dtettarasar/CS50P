@@ -28,8 +28,16 @@ class Jar:
         elif isinstance(value, str) and value.isdigit() == True:
             
             value = int(value)
+            
+        if value > 0:
+            
+            self._capacity = value
+            
+        else:
+            
+            raise ValueError('make sure the capacity provided is a positive integer')    
         
-        self._capacity = value
+        
 
     @property
     def size(self):
