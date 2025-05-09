@@ -35,7 +35,9 @@ def test_str_method():
     
     jar = Jar(5)
     
-    assert jar.__str__() == "🍪"
+    jar.deposit(3)
+    
+    assert jar.__str__() == "🍪🍪🍪"
     
 def test_deposit_method():
     
