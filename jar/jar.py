@@ -3,6 +3,7 @@ class Jar:
     def __init__(self, capacity=12):
         
         self.capacity = capacity
+        # self.stored_cookies = 0
 
     def __str__(self):
         return "🍪"
@@ -12,6 +13,44 @@ class Jar:
 
     def withdraw(self, n):
         ...
+        
+    def value_check(self, value):
+        
+         # check if the value is in string format
+         
+         if isinstance(value, str) and value.isdigit() == False:
+             
+             raise ValueError('make sure the value provided is a valid integer')
+         
+         elif isinstance(value, str) and value.isdigit() == True:
+             
+             value = int(value)
+             
+         if value > 0:
+             
+             return value
+         
+         else:
+            
+            raise ValueError('make sure the value provided is a positive integer')    
+    """
+    @property
+    def stored_cookies(self):
+        return self._stored_cookies
+    
+    @stored_cookies.setter
+    def stored_cookies(self, value):
+        
+        new_stored_cookies_balance = self._stored_cookies + value
+        
+        if self.capacity >= new_stored_cookies_balance:
+            
+            self._stored_cookies = new_stored_cookies_balance
+            
+        else: 
+            
+            raise ValueError('jar capacity excedeed')
+    """
 
     @property
     def capacity(self):
@@ -22,22 +61,7 @@ class Jar:
         
         # check if the value is in string format
         
-        if isinstance(value, str) and value.isdigit() == False:
-            
-            raise ValueError('make sure the capacity provided is a valid integer')
-        
-        elif isinstance(value, str) and value.isdigit() == True:
-            
-            value = int(value)
-            
-        if value > 0:
-            
-            self._capacity = value
-            
-        else:
-            
-            raise ValueError('make sure the capacity provided is a positive integer')    
-        
+        self._capacity = self.value_check(value)
         
 
     @property
