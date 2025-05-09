@@ -3,7 +3,7 @@ class Jar:
     def __init__(self, capacity=12):
         
         self.capacity = capacity
-        # self.stored_cookies = 0
+        self.stored_cookies = 0
 
     def __str__(self):
         return "🍪"
@@ -33,24 +33,14 @@ class Jar:
          else:
             
             raise ValueError('make sure the value provided is a positive integer')    
-    """
+    
     @property
     def stored_cookies(self):
         return self._stored_cookies
     
     @stored_cookies.setter
     def stored_cookies(self, value):
-        
-        new_stored_cookies_balance = self._stored_cookies + value
-        
-        if self.capacity >= new_stored_cookies_balance:
-            
-            self._stored_cookies = new_stored_cookies_balance
-            
-        else: 
-            
-            raise ValueError('jar capacity excedeed')
-    """
+        self._stored_cookies = value
 
     @property
     def capacity(self):
