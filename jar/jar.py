@@ -3,26 +3,19 @@ class Jar:
     def __init__(self, capacity=12):
         
         self.capacity = capacity
-        self.stored_cookies = 0
+        self.size = 0
 
     def __str__(self):
-        return "🍪"
+        return self._size*"🍪"
 
     def deposit(self, n):
         
-        new_stored_cookie = self.stored_cookies + n
+        self.size = self.size + n
         
-        if new_stored_cookie > self.capacity:
-            
-            raise ValueError("cookie jar’s capacity exceeded")
-        
-        else:
-            
-            self.stored_cookies = new_stored_cookie
-        
-
     def withdraw(self, n):
-        ...
+        
+        self.size = self.size - n
+        
         
     def value_check(self, value):
         
@@ -45,12 +38,12 @@ class Jar:
             raise ValueError('make sure the value provided is a positive integer')    
     
     @property
-    def stored_cookies(self):
-        return self._stored_cookies
+    def size(self):
+        return self._size
     
-    @stored_cookies.setter
-    def stored_cookies(self, value):
-        self._stored_cookies = value
+    @size.setter
+    def size(self, value):
+        self._size = value
 
     @property
     def capacity(self):
@@ -59,11 +52,23 @@ class Jar:
     @capacity.setter
     def capacity(self, value):
         
-        # check if the value is in string format
-        
         self._capacity = self.value_check(value)
         
-
     @property
     def size(self):
-        ...
+        return self._size
+    
+    @size.setter
+    def size(self, value):
+        
+        if value > self.capacity:
+            
+            raise ValueError("cookie jar’s capacity exceeded")
+        
+        elif value < 0:
+            
+            raise ValueError("too much cookies withdrawn")
+        
+        else:
+        
+            self._size = value
