@@ -9,7 +9,17 @@ class Jar:
         return "🍪"
 
     def deposit(self, n):
-        ...
+        
+        new_stored_cookie = self.stored_cookies + n
+        
+        if new_stored_cookie > self.capacity:
+            
+            raise ValueError("cookie jar’s capacity exceeded")
+        
+        else:
+            
+            self.stored_cookies = new_stored_cookie
+        
 
     def withdraw(self, n):
         ...

@@ -36,3 +36,15 @@ def test_str_method():
     jar = Jar(5)
     
     assert jar.__str__() == "🍪"
+    
+def test_deposit_method():
+    
+    jar = Jar(10)
+    
+    jar.deposit(5)
+    
+    assert jar.stored_cookies == 5
+    
+    with pytest.raises(ValueError):
+        
+        jar.deposit(20)
